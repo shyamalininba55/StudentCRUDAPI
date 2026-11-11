@@ -1,6 +1,33 @@
 @CrudProject_HostAddress = http://localhost:5204
 
-GET {{CrudProject_HostAddress}}/weatherforecast/
+### Create a student
+POST {{CrudProject_HostAddress}}/api/Student/Create
+Content-Type: application/json
+
+{
+  "name": "Priya",
+  "address": "Erode",
+  "phoneNo": "9876543210"
+}
+
+### Get all students
+GET {{CrudProject_HostAddress}}/api/Student/GetAll
 Accept: application/json
 
-###
+### Get one student by id (change the id to one that exists)
+GET {{CrudProject_HostAddress}}/api/Student/GetById?id=1
+Accept: application/json
+
+### Update a student (change the id to one that exists)
+PUT {{CrudProject_HostAddress}}/api/Student/Update
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "Priya",
+  "address": "Chennai",
+  "phoneNo": "9876543210"
+}
+
+### Delete a student (change the id to one that exists)
+DELETE {{CrudProject_HostAddress}}/api/Student/Delete?id=1
