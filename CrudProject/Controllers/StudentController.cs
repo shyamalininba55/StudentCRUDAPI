@@ -38,8 +38,14 @@ namespace CrudProject.Controllers
         [Route("GetById")]
         public IActionResult Get(int id)
         {
-            Student s1 = _db.students.FirstOrDefault(x => x.Id == id);
-            return Ok(s1);
+            var student = _db.students.FirstOrDefault(x => x.Id == id);
+
+            if (student == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(student);
         }
 
         [HttpPut]
